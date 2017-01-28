@@ -1,0 +1,26 @@
+# general
+alias rez='source ~/.zshrc'
+alias res='exec $SHELL -l'
+
+alias zshrc="vim ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
+
+alias ll='ls -lh'
+alias la='ls -lha'
+alias ..='cd ..'
+alias ....='cd ../..'
+alias ......='cd ../../..'
+
+# screen
+alias sc='screen'
+alias scr='screen -r'
+alias scs='screen -S'
+alias scls='screen -ls'
+
+# python
+alias py='python'
+alias ipy='ipython'
+
+# tmux
+alias tmls='tmux ls'
+alias tma='tmux attach -t'

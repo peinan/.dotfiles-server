@@ -1,0 +1,11 @@
+[USER]
+  name = Peinan ZHANG
+  email = peinan7@gmail.com
+
+[ALIAS]
+  st = status
+  cm = commit
+  df = diff
+  br = branch
+  co = checkout
+  graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
