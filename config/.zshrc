@@ -13,7 +13,8 @@ for f in `ls ${HOME}/.alias.*`; do . $f; done
 # OTHERS
 
 ## 補完機能の強化
-autoload -U compinit
+# zplug 使うのでここでロードしなくても良くなった
+# autoload -U compinit
 
 ## 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
