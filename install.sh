@@ -9,7 +9,7 @@ export CONF_DIR="${DOTPATH}/config"
 
 ## make dotpath dir
 if [ ! -e ${DOTPATH} ]; then
-  git clone "https://raw.githubusercontent.com/peinan/.dotfiles-server/master/install.sh" "${DOTPATH}"
+  git clone "https://github.com/peinan/.dotfiles-server.git" "${DOTPATH}"
 fi
 
 ## make install path dir
