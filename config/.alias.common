@@ -5,17 +5,21 @@ alias res='exec $SHELL -l'
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 
+alias vin="vim +NERDTree"
+
+alias valias="vin ~/.alias.*"
+
 alias ll='ls -lh'
 alias la='ls -lha'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias ......='cd ../../..'
+function mkcd() { mkdir $1; cd $_ }
 
-# screen
-alias sc='screen'
-alias scr='screen -r'
-alias scs='screen -S'
-alias scls='screen -ls'
+# less
+alias less='less -MN'
+alias lessg='less +G'
+alias lessf='less +F'
 
 # python
 alias py='python'
@@ -24,3 +28,23 @@ alias ipy='ipython'
 # tmux
 alias tmls='tmux ls'
 alias tma='tmux attach -t'
+alias tms='tmux new -s'
+alias tmres='tmux respawn-pane -k'
+
+# screen
+alias sc='screen'
+alias scr='screen -r'
+alias scs='screen -S'
+alias scls='screen -ls'
+
+hash -d y=/home/y
+hash -d ylog=/home/y/logs
+hash -d ybin=/home/y/bin
+hash -d ybin64=/home/y/bin64
+hash -d ylib=/home/y/lib
+hash -d ylib64=/home/y/lib64
+hash -d yvar=/home/y/var
+hash -d yetc=/home/y/etc
+hash -d yshare=/home/y/share
+hash -d yconf=/home/y/conf
+

@@ -13,8 +13,7 @@ for f in `ls ${HOME}/.alias.*`; do . $f; done
 # OTHERS
 
 ## 補完機能の強化
-# zplug 使うのでここでロードしなくても良くなった
-# autoload -U compinit
+autoload -U compinit
 
 ## 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -150,27 +149,40 @@ if type screenfetch > /dev/null 2>&1; then
 fi
 
 # Zplug Setting
+
+## Install Script
+function install_zplug() {
+  # check https://github.com/zplug/zplug
+  curl -sL https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+}
+
 ## Activate zplug
-if [[ -s "$HOME/.zplug/init.zsh" ]]; then
-  source ~/.zplug/init.zsh
-else
-  curl -sL zplug.sh/installer | zsh
-fi
+function activate_zplug() {
+  if [[ -s "$HOME/.zplug/init.zsh" ]]; then
+    source ~/.zplug/init.zsh
 
-## Plugins
-### auto suggestions
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+    ## Plugins
+    ### auto suggestions
+    zplug "zsh-users/zsh-autosuggestions"
+    zplug "zsh-users/zsh-completions"
+    zplug "zsh-users/zsh-history-substring-search"
+    zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-## Install
-if ! zplug check --verbose; then
-    printf 'Install? [y/N]: '
-    if read -q; then
-        echo; zplug install
+    ## Install Plugins
+    if ! zplug check --verbose; then
+        printf 'Install? [y/N]: '
+        if read -q; then
+            echo; zplug install
+        fi
     fi
-fi
 
-## Load
-zplug load
+    ## Load Plugins
+    zplug load
+
+  else
+    install_zplug
+    activate_zplug
+  fi
+}
+
+activate_zplug
